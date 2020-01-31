@@ -26,17 +26,17 @@ public abstract class AbstractMapService<T, ID> {
         return object;
     }
 
-    void deleteById(ID id){
+    void deleteById(ID id) {
         map.remove(id);
     }
 
-    void deleteByObject(T object){
+    void delete(T object) {
 //        for (int i = 0; i < map.size(); i++) { // to moje przestarzałe rozwiązanie
 //            if(map.get(i).equals(object)){
 //                map.remove(i);
 //            }
 //        }
-        map.entrySet().removeIf(e->e.getValue().equals(object));
+        map.entrySet().removeIf(e -> e.getValue().equals(object));
     }
 
 
