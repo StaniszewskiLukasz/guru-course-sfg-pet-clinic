@@ -9,7 +9,7 @@ import java.util.Set;
  * @author Łukasz Staniszewski on 2020-01-31
  * @project sfg-pet-clinic
  */
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
