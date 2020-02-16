@@ -13,8 +13,8 @@ import java.util.Set;
  * @author Łukasz Staniszewski on 2020-02-16
  * @project sfg-pet-clinic
  */
-@Service
 @Profile("springdatajpa")
+@Service
 public class SpecialitySDJpaService implements SpecialityService {
 
     private final SpecialityRepository specialityRepository;
