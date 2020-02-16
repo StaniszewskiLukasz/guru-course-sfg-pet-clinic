@@ -8,4 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  * @project sfg-pet-clinic
  */
 public interface OwnerRepository extends CrudRepository <Owner,Long> {
+
+    Owner findByLastName(String lastName);
+
 }
