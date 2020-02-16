@@ -8,7 +8,7 @@ import java.util.*;
  * @author Łukasz Staniszewski on 2020-01-30
  * @project sfg-pet-clinic
  */
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractServiceMap<T extends BaseEntity, ID extends Long> {
 
     protected Map<Long, T> map = new HashMap<>();
 
