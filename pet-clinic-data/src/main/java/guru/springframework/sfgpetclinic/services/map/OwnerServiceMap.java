@@ -8,14 +8,17 @@ import guru.springframework.sfgpetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Łukasz Staniszewski on 2020-01-30
  * @project sfg-pet-clinic
  */
 @Service
-@Profile({"default","map"})
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
@@ -49,7 +52,7 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
                     } else {
                         throw new RuntimeException("PetType is required");
                     }
-                    if(pet.getId()==null){
+                    if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }
@@ -72,7 +75,13 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
-        return null;
+    public List<Owner> findByLastName(String lastName) {
+        if (findAll().stream()
+                .noneMatch(owner -> owner.getLastName().equals(lastName))) {
+            return Collections.emptyList();
+        }
+        return findAll().stream()
+                .filter(owner -> owner.getLastName().equals(lastName))
+                .collect(Collectors.toList());
     }
 }
