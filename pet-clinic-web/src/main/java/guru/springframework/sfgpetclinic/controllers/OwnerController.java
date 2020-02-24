@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @project sfg-pet-clinic
  */
 @Controller
-public class OwnersController {
+public class OwnerController {
 
     private final OwnerService ownerService;
 
-    public OwnersController(OwnerService ownerService) {
+    public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
 
