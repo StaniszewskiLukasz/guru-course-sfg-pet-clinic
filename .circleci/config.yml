@@ -6,7 +6,7 @@ orbs:
 workflows:
   maven_test:
     jobs:
-      - build
+      - mvn install -DskipTests
 
 
 
